@@ -1,0 +1,476 @@
+// bower:scss
+@import "normalize-scss/_normalize.scss";
+// endbower
+
+@import "typo";
+@import "buttons";
+@import "flickity";
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.slippers {
+  padding: 10px;
+  @media(min-width: 980px) {
+    padding: 30px;
+  }
+  section:before,
+  section:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+  section:after {
+    clear: both;
+  }
+
+}
+
+.slippers__header,
+.slippers__branding-bottom {
+  position: relative;
+  background: url('../images/header-1.jpg') 80% 0 no-repeat;
+  background-size: cover;
+  height: 78vh;
+  padding-top: 30px;
+  text-align: center;
+  @media(min-width: 980px) {
+    padding-top: 100px;
+    height: 90vh;
+  }
+  h1, p {
+    color: rgba(255,255,255,0.96);
+    opacity: 0;
+    position: relative;
+    top: 30px;
+    animation: fadein 1s 1;
+    animation-delay: 0.9s;
+    animation-fill-mode:forwards;
+  }
+  p {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.slippers__header h1 {
+  position: relative;
+  display: inline-block;
+  animation-delay: 0.5s;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 52%;
+    height: 22px;
+    background: url(../images/logo.png) center no-repeat;
+    background-size: 100%;
+    top: 15%;
+    left: 35%;
+  }
+}
+
+.slipppers__share {
+  position: absolute;
+  z-index: 10000;
+  top: 5px;
+  right: 15px;
+  @media(min-width: 980px) {
+    position: fixed;
+    top: 15px;
+    right: 45px;
+  }
+}
+
+@keyframes fadein {
+  from {opacity: 0; top: 30px; }
+  to {opacity: 1; top: 0; }
+}
+
+.slippers__cta {
+  position: relative;
+  text-align: center;
+  animation: move 0.6s 1;
+  animation-delay: 1.5s;
+  animation-fill-mode:forwards;
+  &.up {
+    margin-top: -80px;
+  }
+  > a {
+    display: inline-block;
+    padding: 10px 60px;
+    background: #FFF;
+  }
+  .lead {
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 0;
+    margin-bottom: 15px;
+  }
+}
+
+@keyframes move {
+  from {margin-top: 0px;}
+  to {margin-top: -80px;}
+}
+
+////////
+
+.gallery-cell {
+  width: 100%;
+}
+
+.gallery-cell--text {
+  display: table;
+  height: 100%;
+}
+
+.gallery-cell--text__holder {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding-bottom: 80px;
+  p:not(:first-child) {
+    padding: 0 50px;
+  }
+  img {
+    width: 90px !important;
+    border-radius: 90px;
+    padding: 10px !important;
+  }
+  @media (min-width:980px) {
+    padding-bottom: 0;
+    p:not(:first-child) {
+      padding: 0 150px;
+    }
+    img {
+      width: 190px !important;
+      border-radius: 190px;
+      padding: 15px !important;
+    }
+  }
+}
+
+.slippers__color {
+  margin-bottom: 110px;
+}
+
+.slippers__color__image {
+  .gallery {
+    margin-bottom: -55px;
+    @media (min-width: 980px) {
+      margin-bottom: -85px;
+    }
+  }
+  .lead {
+    font-size: 16px;
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    margin: 0
+  }
+  @media (min-width: 980px) {
+    width: 60%;
+    float: left;
+    .gallery img {
+      padding: 100px;
+    }
+  }
+  .gallery img {
+    width: 100%;
+  }
+}
+
+.slippers__color__content {
+  text-align: center;
+  @media (min-width: 980px) {
+    padding: 80px 0 0 50px;
+    width: 35%;
+    float: left;
+    text-align: left;
+  }
+}
+
+.slippers__color__select {
+  text-align: center;
+  position: relative;
+  z-index: 100000;
+
+  padding: 20px 10px;
+}
+
+.nav-cell {
+  width: 85px;
+  img {
+    max-width: 100%;
+    width: 80px;
+    border-radius: 100%;
+    border: 4px solid darken(#F6EDF2,10%);
+    background: #FFF;
+  }
+  &.is-nav-selected {
+    img {
+      border-color: darken(#F6EDF2,30%);;
+    }
+  }
+  @media (min-width: 980px) {
+    width: 100px;
+    img {
+      width: 90px;
+    }
+  }
+}
+
+.slippers__concept {
+  margin: 40px 0;
+}
+
+.slippers__concept__slipper {
+  max-width: 140px;
+  max-height: 140px;
+  position: relative;
+  img {
+    width: 100%;
+    border-radius: 100%;
+    border: 3px dashed #F6EDF2;
+    padding: 20px;
+  }
+  .price {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 100%;
+    background: #F6EDF2;
+    border: 5px solid #FFF;
+    z-index: 1000;
+    top: -5px;
+    left: -5px;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 0;
+    text-align: center;
+    box-sizing: content-box;
+  }
+  &:after {
+    content: "+";
+    position: absolute;
+    font-size: 55px;
+    top: 50%;
+    margin-top: -40px;
+    right: -50px;
+    font-weight: 700;
+    color: darken(#F6EDF2,10%);
+  }
+  @media (min-width: 980px) {
+    max-width: 190px;
+    max-height: 190px;
+    .price {
+      height: 60px;
+      width: 60px;
+      line-height: 60px;
+      font-size: 20px;
+    }
+  }
+}
+
+////////
+
+.slippers__details {
+  overflow: hidden;
+  @media (min-width: 980px) {
+    //height: 100vh;
+  }
+}
+
+.slippers__details__images {
+  padding: 20px 0 50px 0;
+  @media (min-width: 980px) {
+    float: left;
+    width: 60%;
+    padding: 20px 0 130px 0;
+  }
+}
+
+.view-area {
+  position: relative;
+}
+
+.view-area__stof {
+  position: relative;
+  right: 0;
+  top: -155px;
+  width: 80%;
+  img {
+    max-width: 100%;
+    max-height: 310px;
+  }
+  p,h2 {
+    margin-left: 30px;
+    max-width: 330px;
+    padding-left: 30px;
+    display: none;
+  }
+  p {
+    margin-top: 10px;
+  }
+  @media (min-width: 980px) {
+    right: 0;
+    position: absolute;
+    width: 55%;
+    top: 40%;
+  }
+}
+
+.view-area__slippers {
+  max-width: 90%;
+  padding-top: 100px;
+  /*@media (min-width: 980px) {
+    max-width: 75%;
+    left: 10%;
+    position: relative;
+  }*/
+}
+
+.slider {
+  max-width: 600px;
+  background: #FFF;
+  border: 1px dashed #D5D5D5;
+  background: #FFF;
+  margin-top: -140px;
+  display: none;
+
+  @media(min-width: 980px) {
+    position: absolute;
+    right: 5%;
+    left: 15%;
+  }
+}
+
+.slider__item {
+  width: 190px;
+  display: inline-block;
+  padding: 30px;
+  img {
+    max-width: 100%;
+  }
+}
+
+.slippers__details__content {
+  text-align: center;
+  border-bottom: 1px solid #E9E9E9;
+  padding-bottom: 40px;
+  @media (min-width: 980px) {
+    border: none;
+    float: left;
+    width: 40%;
+    padding: 15% 80px 0 35px;
+    text-align: left;
+  }
+}
+
+////////
+
+.slippers__leather {
+  background: url(../images/header-3.jpg) no-repeat bottom left;
+  background-size: cover;
+  padding: 160px 20px 20px 20px;
+  @media (min-width: 980px) {
+    padding: 15% 10% 8% 50%;
+    min-height: 95vh;
+  }
+  text-shadow: 1px 1px 20px rgba(0,0,0,0.5);
+  color: #FFF;
+}
+
+
+////////
+
+
+.slippers__sign-up {
+  text-align: center;
+  padding: 80px 0 90px 0;
+  transition: padding 0.2s linear;
+  @media (min-width: 980px) {
+    padding: 120px 0 150px 0;
+  }
+  p, form {
+    max-width: 670px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  form {
+    border: 1px solid #E9E9E9;
+    overflow: hidden;
+    margin-top: 20px;
+
+    input[type="email"] {
+      border: none;
+      padding: 18px 20px;
+      width: 100%;
+      box-sizing: border-box;
+      font-family: 'Playfair Display',serif;
+      color: #888;
+      text-align: center;
+      @media (min-width: 980px) {
+        width: 57%;
+        float: left;
+        text-align: left;
+      }
+      &:focus {
+        outline: none;
+      }
+
+    }
+    button {
+      width: 100%;
+      @media (min-width: 980px) {
+        float: left;
+        width: 43%;
+      }
+    }
+  }
+}
+
+.slippers__sign-up--small {
+  text-align: left;
+  padding: 0;
+}
+
+////////
+
+.slippers__branding-bottom {
+  background-image: url(../images/header-2.jpg);
+  position: relative;
+  padding: 20px;
+  text-align: left;
+  .big {
+    padding: 22% 40px 0 40px;
+    max-width: 900px;
+    text-shadow: 0px 0px 50px rgba(0,0,0,0.8);
+    letter-spacing: 1px;
+  }
+
+}
+
+////////
+
+.slippers__footer {
+  text-align: center;
+  padding: 50px 0;
+  a {
+    font-size: 16px;
+    color: #555555;
+    letter-spacing: 0.88px;
+    line-height: 19px;
+  }
+}
